@@ -35,6 +35,7 @@ Usually we need to create a database for the application we’re writing and a u
 ### Install Poetry
 
 - Install Poetry if you don't have it using `pip install poetry`
+    - On WSL install using the get-poetry route. For example, on Ubuntu, do `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -`. 
 - Install the packages: `poetry install`
 - To open a Quart shell, just do `poetry run quart shell`
 
