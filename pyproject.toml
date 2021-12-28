@@ -2,7 +2,7 @@
 name = "quart-pg-boilerplate"
 version = "0.1.0"
 description = ""
-authors = ["Jorge Escobar <j@jorge3.com>"]
+authors = ["Jorge Escobar <jorge@fromzero.io>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
