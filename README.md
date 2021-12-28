@@ -1,6 +1,6 @@
 # Quart Postgres Boilerplate
 
-![Code Check](https://github.com/esfoobar/quart-pg-boilerplate/workflows/Code%20Checks/badge.svg)
+![Code Check](https://github.com/fromzeroedu/quart-pg-boilerplate/workflows/Code%20Checks/badge.svg)
 
 This is a boilerplate for a Postgres Quart app that can run as a local poetry-based, Heroku or Docker application. Requires `python 3.7` or higher.
 
