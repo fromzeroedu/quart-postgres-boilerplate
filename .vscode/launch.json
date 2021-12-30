@@ -5,13 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Flask",
+      "name": "Python: Quart",
       "type": "python",
       "request": "launch",
-      "module": "flask",
+      "module": "quart",
       "env": {
-        "FLASK_APP": "manage.py",
-        "FLASK_ENV": "development",
+        "QUART_APP": "manage.py",
+        "QUART_ENV": "development",
       },
       "args": [
         "run",
