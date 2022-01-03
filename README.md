@@ -1,6 +1,6 @@
 # Quart Postgres Boilerplate
 
-![Code Check](https://github.com/fromzeroedu/quart-pg-boilerplate/workflows/Code%20Checks/badge.svg)
+![Code Check](https://github.com/fromzeroedu/quart-postgres-boilerplate/workflows/Code%20Checks/badge.svg)
 
 This is a boilerplate for a Postgres Quart app that can run as a local poetry-based, Heroku or Docker application. Requires `python 3.7` or higher.
 
@@ -9,6 +9,7 @@ This is a boilerplate for a Postgres Quart app that can run as a local poetry-ba
 ### Install Poetry
 
 - Install Poetry if you don't have it using `pip install poetry`
+    - On WSL install using the get-poetry route. For example, on Ubuntu, do `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -`. 
 - Install the packages: `poetry install`
 - To open a Quart shell, just do `poetry run quart shell`
 
