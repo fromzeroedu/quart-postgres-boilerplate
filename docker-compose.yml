@@ -14,9 +14,9 @@ services:
     stdin_open: true
     tty: true
     environment:
-      PORT: 5000
-      SECRET_KEY: "you-will-never-guess"
-      DEBUG: 1 # can't pass True here, but 1 works
+      QUART_APP: manage.py
+      QUART_ENV: development
+      SECRET_KEY: "my_secret_key"
       DB_USERNAME: app_user
       DB_PASSWORD: app_password
       DB_HOST: postgres
