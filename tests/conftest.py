@@ -1,5 +1,4 @@
 import pytest
-import asyncio
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
@@ -11,7 +10,6 @@ from application import create_app
 from db import metadata
 
 
-@pytest.mark.asyncio
 @pytest.fixture
 async def create_db():
     print("Creating db")
