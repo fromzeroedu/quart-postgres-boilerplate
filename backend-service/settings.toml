@@ -1,0 +1,32 @@
+[default]
+SECRET_KEY = "you-will-never-guess"
+DB_USERNAME = "app_user"
+DB_PASSWORD = "app_password"
+DATABASE_NAME = "app"
+
+[development]
+DB_HOST = "localhost"
+
+[docker]
+DB_HOST = "db"
+
+[testing]
+TESTING = true
+DB_HOST = "localhost"
+DATABASE_NAME = "app_test"
+
+[docker-testing]
+TESTING = true
+DB_HOST = "db"
+DATABASE_NAME = "app_test"
+
+[testing_gha]
+TESTING = true
+DB_HOST = "localhost"
+DATABASE_NAME = "app_test"
+
+[staging]
+DB_HOST = "staging-db"
+
+[production]
+DB_HOST = "production-db"

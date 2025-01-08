@@ -1,0 +1,26 @@
+{
+    "name": "My Dev Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "web",
+    "runServices": [
+        "db",
+        "web"
+    ],
+    "workspaceFolder": "/app",
+    "overrideCommand": false,
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/bin/python3"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "matangover.mypy"
+            ]
+        }
+    },
+    "postCreateCommand": "poetry config virtualenvs.create true && poetry install",
+    "remoteUser": "root"
+}

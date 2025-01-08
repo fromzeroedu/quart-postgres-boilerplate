@@ -1,0 +1,67 @@
+name: My App CI/CD Pipeline
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "my-app/**"
+env:
+  PR_NUMBER: ${{github.event.pull_request.number}}
+  SHA_NUMBER: ${{github.event.pull_request.head.sha}}
+jobs:
+  generate-staging:
+    name: Deploy Application
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: my-app
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_USER: app_user
+          POSTGRES_PASSWORD: app_password
+          POSTGRES_DB: app
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Print variables to help debug
+        uses: hmarr/debug-action@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Print Poetry settings
+        run: poetry show -v
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run Black
+        run: |
+          poetry run black --check .
+
+      - name: Run mypy
+        run: |
+          poetry run mypy .
+
+      - name: Run tests
+        run: |
+          poetry run pytest
+        env:
+          ENV_FOR_DYNACONF: testing_gha

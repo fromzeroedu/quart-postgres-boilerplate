@@ -1,8 +1,12 @@
 .DS_Store
 *.plist
 *~
+*.pyc
 *.swp
 *#
 .metadata
-.mypy_cache
+*.log
 __pycache__
+.mypy_cache
+.venv
+.vscode

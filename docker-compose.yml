@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: ./backend-service
+      target: development
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./backend-service:/app
+    links:
+      - db:postgres
+    container_name: app_web_1
+    depends_on:
+      - db
+    environment:
+      PORT: 5001
+      SECRET_KEY: "you-will-never-guess"
+      ENV_FOR_DYNACONF: docker
+      DB_USERNAME: app_user
+      DB_PASSWORD: app_password
+      DB_HOST: postgres
+      DATABASE_NAME: app
+
+  test:
+    extends: web
+    environment:
+      ENV_FOR_DYNACONF: docker-testing
+      PORT: 5001
+      SECRET_KEY: "you-will-never-guess"
+      DB_USERNAME: app_user
+      DB_PASSWORD: app_password
+    container_name: app_test_1
+
+  db:
+    image: postgres:14-alpine
+    restart: always
+    container_name: app_db_1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: app_password
+      POSTGRES_DB: app
