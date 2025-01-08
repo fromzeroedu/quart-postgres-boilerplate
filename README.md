@@ -5,7 +5,7 @@ You need to run alembic migrations the first time you run the app.
 
 To do this, start the app with the following command:
 ```bash
-docker-compose up --build -d
+docker-compose up --build -d db web
 ```
 
 Then, run the following command to run the migrations:  
