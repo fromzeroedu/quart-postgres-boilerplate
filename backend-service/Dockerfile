@@ -52,8 +52,8 @@ RUN poetry install
 # Listen to port 5001 at runtime
 EXPOSE 5001
 
-# Define our command to be run when launching the container
-CMD poetry run hypercorn my_app.asgi:app -b 0.0.0.0:5001 --reload
+# Define a tail command for the development container
+CMD ["tail", "-f", "/dev/null"]
 
 FROM base as production
 # Copy the rest of the application
