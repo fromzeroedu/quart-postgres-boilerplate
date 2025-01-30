@@ -53,7 +53,7 @@ RUN poetry install
 EXPOSE 5001
 
 # Define a tail command for the development container
-CMD ["tail", "-f", "/dev/null"]
+CMD poetry run hypercorn my_app.asgi:app -b 0.0.0.0:5001 --reload
 
 FROM base as production
 # Copy the rest of the application
