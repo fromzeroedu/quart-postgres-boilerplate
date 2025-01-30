@@ -7,17 +7,21 @@
         "web"
     ],
     "workspaceFolder": "/app",
-    "overrideCommand": false,
+    "overrideCommand": true,
+    "postStartCommand": "bash",
+    "remoteEnv": {
+        "ENV_FOR_DYNACONF": "DEVCONTAINER"
+    },
     "customizations": {
         "vscode": {
             "settings": {
                 "python.pythonPath": "/usr/bin/python3"
-            },
+                },
             "extensions": [
                 "ms-python.python",
                 "ms-python.black-formatter",
                 "ms-python.isort",
-                "matangover.mypy"
+                "ms-python.mypy-type-checker"
             ]
         }
     },
