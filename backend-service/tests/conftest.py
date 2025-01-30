@@ -2,14 +2,15 @@ from typing import AsyncGenerator
 
 import pytest
 from dynaconf import settings
-from my_app.application import create_app
-from my_app.db import metadata
-from my_app.logger import get_logger
 from quart import Quart
 from quart.typing import TestClientProtocol
 from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists, drop_database
 from typing_extensions import Never
+
+from my_app.application import create_app
+from my_app.db import metadata
+from my_app.logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -20,6 +21,8 @@ async def create_db() -> AsyncGenerator[dict, Never]:
         settings.configure(FORCE_ENV_FOR_DYNACONF="TESTING")
     if settings.ENV_FOR_DYNACONF == "DOCKER":
         settings.configure(FORCE_ENV_FOR_DYNACONF="DOCKER_TESTING")
+    if settings.ENV_FOR_DYNACONF == "DEVCONTAINER":
+        settings.configure(FORCE_ENV_FOR_DYNACONF="DEVCONTAINER-TESTING")
 
     db_test_uri = "postgresql://%s:%s@%s:5432/%s" % (
         settings["DB_USERNAME"],

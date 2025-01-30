@@ -7,6 +7,9 @@ DATABASE_NAME = "app"
 [development]
 DB_HOST = "localhost"
 
+[devcontainer]
+DB_HOST = "db"
+
 [docker]
 DB_HOST = "db"
 
@@ -16,6 +19,11 @@ DB_HOST = "localhost"
 DATABASE_NAME = "app_test"
 
 [docker-testing]
+TESTING = true
+DB_HOST = "db"
+DATABASE_NAME = "app_test"
+
+[devcontainer-testing]
 TESTING = true
 DB_HOST = "db"
 DATABASE_NAME = "app_test"

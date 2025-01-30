@@ -24,6 +24,8 @@ services:
 
   test:
     extends: web
+    profiles:
+      - testing
     environment:
       ENV_FOR_DYNACONF: docker-testing
       PORT: 5001
