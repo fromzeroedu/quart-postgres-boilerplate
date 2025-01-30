@@ -7,6 +7,7 @@ packages = [{include = "my_app"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+setuptools = "^75.8.0"
 python-json-logger = "^2.0.7"
 quart = "0.18.4"
 werkzeug = "2.3.7"
