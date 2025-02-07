@@ -7,24 +7,28 @@
         "web"
     ],
     "workspaceFolder": "/app",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+    ],
     "overrideCommand": true,
-    "postStartCommand": "bash",
     "remoteEnv": {
         "ENV_FOR_DYNACONF": "DEVCONTAINER"
     },
     "customizations": {
         "vscode": {
             "settings": {
-                "python.pythonPath": "/usr/bin/python3"
-                },
+                "python.defaultInterpreterPath": "/app/backend-service/.venv/bin/python",
+                "git.defaultCloneDirectory": "/app"
+            },
             "extensions": [
                 "ms-python.python",
                 "ms-python.black-formatter",
                 "ms-python.isort",
-                "ms-python.mypy-type-checker"
+                "ms-python.mypy-type-checker",
+                "GitHub.copilot"
             ]
         }
     },
-    "postCreateCommand": "poetry config virtualenvs.create true && poetry install",
+    "postCreateCommand": "cd /app/backend-service && poetry config virtualenvs.create true && poetry install",
     "remoteUser": "root"
 }

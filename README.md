@@ -1,4 +1,4 @@
-# Quart-Feed
+# Quart-Postgres-Boilerplate
 
 ## Setup
 You need to run alembic migrations the first time you run the app. 
